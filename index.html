@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SOLVIOX - Solar Energy & Lighting Solutions</title>
+
+    <!-- Theme initialization script to prevent FOUC -->
+    <script>
+      (function() {
+        function getInitialTheme() {
+          const savedTheme = localStorage.getItem('theme');
+          if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+            return savedTheme;
+          }
+
+          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            return 'dark';
+          }
+
+          return 'light';
+        }
+
+        function applyTheme() {
+          const theme = getInitialTheme();
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else {
+            document.documentElement.classList.remove('dark');
+          }
+        }
+
+        // Apply theme immediately
+        applyTheme();
+
+        // Re-apply theme on page visibility change (for navigation)
+        document.addEventListener('visibilitychange', function() {
+          if (!document.hidden) {
+            applyTheme();
+          }
+        });
+
+        // Re-apply theme on focus (for navigation)
+        window.addEventListener('focus', applyTheme);
+
+        // Re-apply theme on storage change (for cross-tab sync)
+        window.addEventListener('storage', function(e) {
+          if (e.key === 'theme') {
+            applyTheme();
+          }
+        });
+      })();
+    </script>
+    <!-- Vite will handle injecting modules and CSS during development -->
+    <script type="module" src="/src/main.tsx"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
