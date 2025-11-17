@@ -1,97 +1,111 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { CheckCircle, Phone, Mail, Radio, Eye, Shield, Zap } from 'lucide-react';
-import Header from '../components/layout/Header';
-import Footer from '../components/layout/Footer';
+import React from "react";
+import { motion } from "framer-motion";
+import {
+  CheckCircle,
+  Phone,
+  Mail,
+  Radio,
+  Eye,
+  Shield,
+  Zap,
+} from "lucide-react";
+import Header from "../components/layout/Header";
+import Footer from "../components/layout/Footer";
 
 const HighMastPage: React.FC = () => {
   const features = [
-    'High-intensity LED luminaires with 150+ lumens per watt',
-    'Galvanized steel masts with corrosion resistance',
-    'Remote monitoring and control systems',
-    'Automatic lowering mechanism for maintenance',
-    'Wind-resistant design up to 150 km/h',
-    'Solar integration options for hybrid operation',
-    'Smart dimming and scheduling capabilities',
-    'Emergency backup and fail-safe systems'
+    "High-intensity LED luminaires with 150+ lumens per watt",
+    "Galvanized steel masts with corrosion resistance",
+    "Remote monitoring and control systems",
+    "Automatic lowering mechanism for maintenance",
+    "Wind-resistant design up to 150 km/h",
+    "Solar integration options for hybrid operation",
+    "Smart dimming and scheduling capabilities",
+    "Emergency backup and fail-safe systems",
   ];
 
   const benefits = [
     {
       icon: <Radio size={32} />,
-      title: 'High Luminosity',
-      description: 'Superior illumination coverage for large areas with high-intensity LED technology and optimal light distribution.'
+      title: "High Luminosity",
+      description:
+        "Superior illumination coverage for large areas with high-intensity LED technology and optimal light distribution.",
     },
     {
       icon: <Eye size={32} />,
-      title: 'Remote Monitoring',
-      description: 'Advanced monitoring systems allow real-time status tracking and remote control for efficient management.'
+      title: "Remote Monitoring",
+      description:
+        "Advanced monitoring systems allow real-time status tracking and remote control for efficient management.",
     },
     {
       icon: <Shield size={32} />,
-      title: 'Durable Design',
-      description: 'Weather-resistant construction with galvanized steel and corrosion protection for long-lasting performance.'
+      title: "Durable Design",
+      description:
+        "Weather-resistant construction with galvanized steel and corrosion protection for long-lasting performance.",
     },
     {
       icon: <Zap size={32} />,
-      title: 'Energy Efficient',
-      description: 'Smart controls and LED technology ensure optimal energy consumption with maximum lighting output.'
-    }
+      title: "Energy Efficient",
+      description:
+        "Smart controls and LED technology ensure optimal energy consumption with maximum lighting output.",
+    },
   ];
 
   const applications = [
-    'Highway and Expressway Lighting',
-    'Airport Runway and Taxiway Illumination',
-    'Large Commercial Complex Lighting',
-    'Industrial Facility Perimeter Lighting',
-    'Sports Stadium and Arena Lighting',
-    'Port and Harbor Area Illumination',
-    'Railway Station and Platform Lighting',
-    'Large Parking Area Coverage'
+    "Highway and Expressway Lighting",
+    "Airport Runway and Taxiway Illumination",
+    "Large Commercial Complex Lighting",
+    "Industrial Facility Perimeter Lighting",
+    "Sports Stadium and Arena Lighting",
+    "Port and Harbor Area Illumination",
+    "Railway Station and Platform Lighting",
+    "Large Parking Area Coverage",
   ];
 
   const specifications = [
-    { label: 'Mast Height', value: '15m - 40m' },
-    { label: 'LED Power', value: '200W - 1000W' },
-    { label: 'Coverage Area', value: '2000 - 8000 sqm' },
-    { label: 'Wind Resistance', value: '150 km/h' },
-    { label: 'Luminaire Life', value: '50,000+ Hours' },
-    { label: 'Warranty', value: '5-10 Years' },
-    { label: 'Installation', value: '3-5 Days' },
-    { label: 'Maintenance', value: 'Minimal' }
+    { label: "Mast Height", value: "15m - 40m" },
+    { label: "LED Power", value: "200W - 1000W" },
+    { label: "Coverage Area", value: "2000 - 8000 sqm" },
+    { label: "Wind Resistance", value: "150 km/h" },
+    { label: "Luminaire Life", value: "50,000+ Hours" },
+    { label: "Warranty", value: "5-10 Years" },
+    { label: "Installation", value: "3-5 Days" },
+    { label: "Maintenance", value: "Minimal" },
   ];
 
   const mastTypes = [
     {
-      title: 'Standard High Mast',
-      height: '15m - 25m',
-      application: 'Commercial areas, parking lots',
-      features: ['Fixed luminaires', 'Manual maintenance', 'Standard controls']
+      title: "Standard High Mast",
+      height: "15m - 25m",
+      application: "Commercial areas, parking lots",
+      features: ["Fixed luminaires", "Manual maintenance", "Standard controls"],
     },
     {
-      title: 'Motorized High Mast',
-      height: '20m - 30m',
-      application: 'Highways, airports',
-      features: ['Lowering mechanism', 'Easy maintenance', 'Remote controls']
+      title: "Motorized High Mast",
+      height: "20m - 30m",
+      application: "Highways, airports",
+      features: ["Lowering mechanism", "Easy maintenance", "Remote controls"],
     },
     {
-      title: 'Solar Hybrid High Mast',
-      height: '15m - 35m',
-      application: 'Remote areas, eco-friendly zones',
-      features: ['Solar integration', 'Battery backup', 'Smart controls']
-    }
+      title: "Solar Hybrid High Mast",
+      height: "15m - 35m",
+      application: "Remote areas, eco-friendly zones",
+      features: ["Solar integration", "Battery backup", "Smart controls"],
+    },
   ];
 
   return (
-    <div className="min-h-screen transition-colors duration-300" style={{ backgroundColor: 'var(--bg-secondary)' }}>
-      <Header
-        pageType="service"
-        pageTitle="High Mast Lighting"
-        showBackButton={true}
-      />
-      
+    <div
+      className="min-h-screen transition-colors duration-300"
+      style={{ backgroundColor: "var(--bg-secondary)" }}
+    >
+      <Header />
+
       {/* Hero Section */}
-      <section className="relative overflow-hidden" style={{ backgroundColor: 'var(--primary-600)' }}>
+      <section
+        className="relative overflow-hidden"
+        style={{ backgroundColor: "var(--primary-600)" }}
+      >
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-16 right-16 w-32 h-32 bg-white rounded-full"></div>
@@ -99,9 +113,8 @@ const HighMastPage: React.FC = () => {
           <div className="absolute top-1/3 left-1/3 w-20 h-20 bg-white rounded-full"></div>
           <div className="absolute bottom-1/4 right-1/3 w-16 h-16 bg-white rounded-full"></div>
         </div>
-        
-        <div className="container-custom section-padding relative z-10 pt-32">
 
+        <div className="container-custom section-padding relative z-10 pt-32">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -116,35 +129,38 @@ const HighMastPage: React.FC = () => {
               >
                 🏗️ High-Performance Lighting
               </motion.div>
-              
+
               <h1 className="text-5xl md:text-6xl font-bold mb-6 text-white leading-tight">
-                Solar & AC
-                <span className="block text-secondary-300">High Mast</span>
+                Solar & AC <span className="text-secondary-300">High Mast</span>
               </h1>
-              
+
               <p className="text-xl mb-8 text-white opacity-90 leading-relaxed max-w-lg">
-                High-mast lighting solutions for highways, airports, and large commercial areas. Superior illumination with smart controls and solar integration.
+                High-mast lighting solutions for highways, airports, and large
+                commercial areas. Superior illumination with smart controls and
+                solar integration.
               </p>
-              
+
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <motion.button
                   className="px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl flex items-center justify-center gap-3 group"
                   style={{
-                    backgroundColor: 'var(--surface-primary)',
-                    color: 'var(--primary-600)'
+                    backgroundColor: "var(--surface-primary)",
+                    color: "var(--primary-600)",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+                    e.currentTarget.style.backgroundColor =
+                      "var(--bg-secondary)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--surface-primary)';
+                    e.currentTarget.style.backgroundColor =
+                      "var(--surface-primary)";
                   }}
                   whileHover={{ scale: 1.02, y: -3 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => {
-                    const contactSection = document.getElementById('contact');
+                    const contactSection = document.getElementById("contact");
                     if (contactSection) {
-                      contactSection.scrollIntoView({ behavior: 'smooth' });
+                      contactSection.scrollIntoView({ behavior: "smooth" });
                     }
                   }}
                 >
@@ -161,16 +177,17 @@ const HighMastPage: React.FC = () => {
                   href="tel:+919428110764"
                   className="border-2 border-white text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 flex items-center justify-center gap-3 group backdrop-blur-sm"
                   style={{
-                    borderColor: 'rgba(255, 255, 255, 0.8)',
-                    color: 'white'
+                    borderColor: "rgba(255, 255, 255, 0.8)",
+                    color: "white",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.9)';
-                    e.currentTarget.style.color = 'var(--primary-600)';
+                    e.currentTarget.style.backgroundColor =
+                      "rgba(255, 255, 255, 0.9)";
+                    e.currentTarget.style.color = "var(--primary-600)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = 'white';
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.color = "white";
                   }}
                   whileHover={{ scale: 1.02, y: -3 }}
                   whileTap={{ scale: 0.98 }}
@@ -190,15 +207,21 @@ const HighMastPage: React.FC = () => {
               <div className="grid grid-cols-3 gap-6">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-white">40m</div>
-                  <div className="text-sm text-white opacity-70">Max Height</div>
+                  <div className="text-sm text-white opacity-70">
+                    Max Height
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-white">8000</div>
-                  <div className="text-sm text-white opacity-70">sqm Coverage</div>
+                  <div className="text-sm text-white opacity-70">
+                    sqm Coverage
+                  </div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-white">10</div>
-                  <div className="text-sm text-white opacity-70">Years Warranty</div>
+                  <div className="text-sm text-white opacity-70">
+                    Years Warranty
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -210,33 +233,45 @@ const HighMastPage: React.FC = () => {
               className="relative"
             >
               {/* Main Feature Card */}
-              <div 
+              <div
                 className="rounded-3xl p-8 border-2 relative overflow-hidden"
-                style={{ 
-                  backgroundColor: 'rgba(255, 255, 255, 0.15)',
-                  borderColor: 'rgba(255, 255, 255, 0.3)',
-                  backdropFilter: 'blur(15px)'
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.15)",
+                  borderColor: "rgba(255, 255, 255, 0.3)",
+                  backdropFilter: "blur(15px)",
                 }}
               >
                 {/* Floating Tower Elements */}
                 <motion.div
                   className="absolute top-4 right-4 w-2 h-8 bg-white rounded-full"
-                  animate={{ 
+                  animate={{
                     scaleY: [1, 1.2, 1],
-                    opacity: [0.7, 1, 0.7]
+                    opacity: [0.7, 1, 0.7],
                   }}
-                  transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+                  transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
                 />
                 <motion.div
                   className="absolute top-6 right-8 w-1 h-6 bg-white rounded-full"
-                  animate={{ 
+                  animate={{
                     scaleY: [1, 1.3, 1],
-                    opacity: [0.6, 1, 0.6]
+                    opacity: [0.6, 1, 0.6],
                   }}
-                  transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  transition={{
+                    duration: 2.5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                    delay: 0.5,
+                  }}
                 />
-                
-                <h3 className="text-2xl font-bold mb-6" style={{ color: 'white' }}>
+
+                <h3
+                  className="text-2xl font-bold mb-6"
+                  style={{ color: "white" }}
+                >
                   Advanced High Mast Features
                 </h3>
                 <div className="space-y-4">
@@ -249,9 +284,12 @@ const HighMastPage: React.FC = () => {
                       className="flex items-center gap-3 group"
                     >
                       <div className="w-6 h-6 rounded-full bg-white bg-opacity-20 flex items-center justify-center flex-shrink-0">
-                        <CheckCircle size={16} style={{ color: 'white' }} />
+                        <CheckCircle size={16} style={{ color: "white" }} />
                       </div>
-                      <span style={{ color: 'white' }} className="group-hover:translate-x-1 transition-transform">
+                      <span
+                        style={{ color: "white" }}
+                        className="group-hover:translate-x-1 transition-transform"
+                      >
                         {feature}
                       </span>
                     </motion.div>
@@ -264,7 +302,10 @@ const HighMastPage: React.FC = () => {
       </section>
 
       {/* Benefits Section */}
-      <section className="section-padding transition-colors duration-300" style={{ backgroundColor: 'var(--bg-primary)' }}>
+      <section
+        className="section-padding transition-colors duration-300"
+        style={{ backgroundColor: "var(--bg-primary)" }}
+      >
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -273,11 +314,18 @@ const HighMastPage: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+            <h2
+              className="text-3xl md:text-4xl font-bold mb-6"
+              style={{ color: "var(--text-primary)" }}
+            >
               Why Choose High Mast Lighting?
             </h2>
-            <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              Superior illumination solutions for large-scale lighting requirements.
+            <p
+              className="text-xl max-w-3xl mx-auto"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Superior illumination solutions for large-scale lighting
+              requirements.
             </p>
           </motion.div>
 
@@ -290,17 +338,27 @@ const HighMastPage: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="rounded-xl p-6 card-shadow hover:shadow-lg transition-shadow text-center group"
-                style={{ backgroundColor: 'var(--surface-primary)' }}
+                style={{ backgroundColor: "var(--surface-primary)" }}
               >
                 <div className="flex justify-center mb-4">
                   <div className="w-16 h-16 rounded-full bg-primary-100 flex items-center justify-center group-hover:bg-primary-200 transition-colors">
-                    <div style={{ color: 'var(--primary-600)' }}>
+                    <div style={{ color: "var(--primary-600)" }}>
                       {benefit.icon}
                     </div>
                   </div>
                 </div>
-                <h3 className="text-lg font-bold mb-3" style={{ color: 'var(--text-primary)' }}>{benefit.title}</h3>
-                <p className="text-sm leading-relaxed" style={{ color: 'var(--text-secondary)' }}>{benefit.description}</p>
+                <h3
+                  className="text-lg font-bold mb-3"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  {benefit.title}
+                </h3>
+                <p
+                  className="text-sm leading-relaxed"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  {benefit.description}
+                </p>
               </motion.div>
             ))}
           </div>
@@ -317,11 +375,18 @@ const HighMastPage: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+            <h2
+              className="text-3xl md:text-4xl font-bold mb-6"
+              style={{ color: "var(--text-primary)" }}
+            >
               High Mast Types
             </h2>
-            <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-              Choose the right high mast solution for your specific requirements.
+            <p
+              className="text-xl max-w-3xl mx-auto"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Choose the right high mast solution for your specific
+              requirements.
             </p>
           </motion.div>
 
@@ -334,16 +399,30 @@ const HighMastPage: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.2 }}
                 viewport={{ once: true }}
                 className="rounded-xl p-8 card-shadow hover:shadow-lg transition-shadow"
-                style={{ backgroundColor: 'var(--surface-primary)' }}
+                style={{ backgroundColor: "var(--surface-primary)" }}
               >
-                <h3 className="text-xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>{mast.title}</h3>
-                <div className="text-2xl font-bold text-primary-600 mb-2">{mast.height}</div>
-                <p className="mb-6" style={{ color: 'var(--text-secondary)' }}>{mast.application}</p>
+                <h3
+                  className="text-xl font-bold mb-4"
+                  style={{ color: "var(--text-primary)" }}
+                >
+                  {mast.title}
+                </h3>
+                <div className="text-2xl font-bold text-primary-600 mb-2">
+                  {mast.height}
+                </div>
+                <p className="mb-6" style={{ color: "var(--text-secondary)" }}>
+                  {mast.application}
+                </p>
                 <div className="space-y-2">
                   {mast.features.map((feature, featureIndex) => (
                     <div key={featureIndex} className="flex items-center gap-2">
                       <div className="w-2 h-2 bg-primary-500 rounded-full"></div>
-                      <span className="text-sm" style={{ color: 'var(--text-secondary)' }}>{feature}</span>
+                      <span
+                        className="text-sm"
+                        style={{ color: "var(--text-secondary)" }}
+                      >
+                        {feature}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -354,7 +433,10 @@ const HighMastPage: React.FC = () => {
       </section>
 
       {/* Applications Section */}
-      <section className="section-padding transition-colors duration-300" style={{ backgroundColor: 'var(--bg-primary)' }}>
+      <section
+        className="section-padding transition-colors duration-300"
+        style={{ backgroundColor: "var(--bg-primary)" }}
+      >
         <div className="container-custom">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -363,10 +445,16 @@ const HighMastPage: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+            <h2
+              className="text-3xl md:text-4xl font-bold mb-6"
+              style={{ color: "var(--text-primary)" }}
+            >
               Perfect Applications
             </h2>
-            <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+            <p
+              className="text-xl max-w-3xl mx-auto"
+              style={{ color: "var(--text-secondary)" }}
+            >
               High mast lighting solutions for various large-scale applications.
             </p>
           </motion.div>
@@ -380,14 +468,17 @@ const HighMastPage: React.FC = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className="rounded-xl p-6 card-shadow hover:shadow-lg transition-shadow group"
-                style={{ backgroundColor: 'var(--surface-primary)' }}
+                style={{ backgroundColor: "var(--surface-primary)" }}
               >
                 <div className="flex items-center gap-3">
                   <div
                     className="w-3 h-3 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: 'var(--primary-500)' }}
+                    style={{ backgroundColor: "var(--primary-500)" }}
                   ></div>
-                  <span className="font-medium group-hover:text-primary-600 transition-colors" style={{ color: 'var(--text-primary)' }}>
+                  <span
+                    className="font-medium group-hover:text-primary-600 transition-colors"
+                    style={{ color: "var(--text-primary)" }}
+                  >
                     {application}
                   </span>
                 </div>
@@ -407,10 +498,16 @@ const HighMastPage: React.FC = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+            <h2
+              className="text-3xl md:text-4xl font-bold mb-6"
+              style={{ color: "var(--text-primary)" }}
+            >
               Technical Specifications
             </h2>
-            <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
+            <p
+              className="text-xl max-w-3xl mx-auto"
+              style={{ color: "var(--text-secondary)" }}
+            >
               Detailed specifications of our high mast lighting systems.
             </p>
           </motion.div>
@@ -425,10 +522,20 @@ const HighMastPage: React.FC = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="rounded-xl p-6 card-shadow text-center hover:shadow-lg transition-shadow"
-                  style={{ backgroundColor: 'var(--surface-primary)' }}
+                  style={{ backgroundColor: "var(--surface-primary)" }}
                 >
-                  <h3 className="text-lg font-semibold mb-3" style={{ color: 'var(--text-primary)' }}>{spec.label}</h3>
-                  <p className="text-2xl font-bold" style={{ color: 'var(--primary-600)' }}>{spec.value}</p>
+                  <h3
+                    className="text-lg font-semibold mb-3"
+                    style={{ color: "var(--text-primary)" }}
+                  >
+                    {spec.label}
+                  </h3>
+                  <p
+                    className="text-2xl font-bold"
+                    style={{ color: "var(--primary-600)" }}
+                  >
+                    {spec.value}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -437,7 +544,11 @@ const HighMastPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section id="contact" className="section-padding" style={{ backgroundColor: 'var(--primary-600)' }}>
+      <section
+        id="contact"
+        className="section-padding"
+        style={{ backgroundColor: "var(--primary-600)" }}
+      >
         <div className="container-custom text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -449,8 +560,9 @@ const HighMastPage: React.FC = () => {
               Ready to Install High Mast Lighting?
             </h2>
             <p className="text-xl mb-8 text-white opacity-90 max-w-2xl mx-auto leading-relaxed">
-              Get a comprehensive quote for your high mast lighting project. 
-              Our experts will design the perfect lighting solution for your large-scale requirements.
+              Get a comprehensive quote for your high mast lighting project. Our
+              experts will design the perfect lighting solution for your
+              large-scale requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <motion.a
