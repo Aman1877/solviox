@@ -9,26 +9,35 @@
     <!-- Theme initialization script to prevent FOUC -->
     <script>
       (function() {
+        // TEMPORARILY FORCED TO DARK MODE - Theme toggle commented out
         function getInitialTheme() {
-          const savedTheme = localStorage.getItem('theme');
-          if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-            return savedTheme;
-          }
+          // Always return dark theme
+          return 'dark';
+          
+          // Original code commented out:
+          // const savedTheme = localStorage.getItem('theme');
+          // if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+          //   return savedTheme;
+          // }
 
-          if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            return 'dark';
-          }
+          // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+          //   return 'dark';
+          // }
 
-          return 'light';
+          // return 'light';
         }
 
         function applyTheme() {
           const theme = getInitialTheme();
-          if (theme === 'dark') {
-            document.documentElement.classList.add('dark');
-          } else {
-            document.documentElement.classList.remove('dark');
-          }
+          // Always apply dark theme
+          document.documentElement.classList.add('dark');
+          
+          // Original code commented out:
+          // if (theme === 'dark') {
+          //   document.documentElement.classList.add('dark');
+          // } else {
+          //   document.documentElement.classList.remove('dark');
+          // }
         }
 
         // Apply theme immediately

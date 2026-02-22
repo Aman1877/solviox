@@ -1,74 +1,89 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { useForm, type SubmitHandler } from 'react-hook-form';
-import { Phone, Mail, MapPin, Clock, Send, User, MessageSquare } from 'lucide-react';
-import { submitContactForm, type ContactFormData } from '../../utils/formSubmission';
+import React from "react";
+import { motion } from "framer-motion";
+import { useForm, type SubmitHandler } from "react-hook-form";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Clock,
+  Send,
+  User,
+  MessageSquare,
+} from "lucide-react";
+import {
+  submitContactForm,
+  type ContactFormData,
+} from "../../utils/formSubmission";
 
 const Contact: React.FC = () => {
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-    reset
+    reset,
   } = useForm<ContactFormData>({
     defaultValues: {
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-      service: ''
-    }
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+      service: "",
+    },
   });
 
   const onSubmit: SubmitHandler<ContactFormData> = async (data) => {
     try {
       await submitContactForm(data);
-      alert('Thank you for your message! We will get back to you soon.');
+      alert("Thank you for your message! We will get back to you soon.");
       reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
-      alert('There was an error sending your message. Please try again.');
+      console.error("Error submitting form:", error);
+      alert("There was an error sending your message. Please try again.");
     }
   };
 
   const contactInfo = [
     {
       icon: <Phone size={24} />,
-      title: 'Phone Numbers',
-      details: ['+91 94281 10764', '+91 63536 98862'],
-      color: 'primary'
+      title: "Phone Numbers",
+      details: ["+91 94281 10764", "+91 63536 98862"],
+      color: "primary",
     },
     {
       icon: <Mail size={24} />,
-      title: 'Email Address',
-      details: ['solvioxenergy@gmail.com', ''],
-      color: 'secondary'
+      title: "Email Address",
+      details: ["solvioxenergy@gmail.com", ""],
+      color: "secondary",
     },
     {
       icon: <MapPin size={24} />,
-      title: 'Location',
-      details: ['Ahmedabad-380001', 'Gujarat, India'],
-      color: 'accent'
+      title: "Location",
+      details: ["Ahmedabad-380001", "Gujarat, India"],
+      color: "accent",
     },
     {
       icon: <Clock size={24} />,
-      title: 'Business Hours',
-      details: ['Mon - Sat: 9:00 AM - 7:00 PM', 'Sunday: By Appointment'],
-      color: 'primary'
-    }
+      title: "Business Hours",
+      details: ["Mon - Sat: 9:00 AM - 7:00 PM", "Sunday: By Appointment"],
+      color: "primary",
+    },
   ];
 
   const services = [
-    'Solar Rooftop',
-    'Solar LED & AC Street Light',
-    'Solar & AC EPC Projects',
-    'Solar & AC High Mast',
-    'Consultation',
-    'Other'
+    "Solar Rooftop",
+    "Solar LED & AC Street Light",
+    "Solar & AC EPC Projects",
+    "Solar & AC High Mast",
+    "Consultation",
+    "Other",
   ];
 
   return (
-    <section id="contact" className="section-padding transition-colors duration-300" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+    <section
+      id="contact"
+      className="section-padding transition-colors duration-300"
+      style={{ backgroundColor: "var(--bg-secondary)" }}
+    >
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -77,12 +92,18 @@ const Contact: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+          <h2
+            className="text-4xl md:text-5xl font-bold mb-6"
+            style={{ color: "var(--text-primary)" }}
+          >
             Get in <span className="text-primary-600">Touch</span>
           </h2>
-          <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-            Ready to start your solar journey? Contact us today for a free consultation
-            and personalized quote for your solar energy needs.
+          <p
+            className="text-xl max-w-3xl mx-auto"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Ready to start your solar journey? Contact us today for a free
+            consultation and personalized quote for your solar energy needs.
           </p>
         </motion.div>
 
@@ -97,8 +118,13 @@ const Contact: React.FC = () => {
             <div className="contact-form-header">
               <MessageSquare className="contact-form-icon" size={32} />
               <div>
-                <h3 className="contact-form-title">Get Your Free Solar Quote</h3>
-                <p className="contact-form-subtitle">Ready to switch to clean energy? Let's discuss your solar needs.</p>
+                <h3 className="contact-form-title">
+                  Get Your Free Solar Quote
+                </h3>
+                <p className="contact-form-subtitle">
+                  Ready to switch to clean energy? Let's discuss your solar
+                  needs.
+                </p>
               </div>
             </div>
 
@@ -119,14 +145,14 @@ const Contact: React.FC = () => {
                     </label>
                     <input
                       type="text"
-                      {...register('name', {
-                        required: 'Full name is required',
+                      {...register("name", {
+                        required: "Full name is required",
                         minLength: {
                           value: 2,
-                          message: 'Name must be at least 2 characters'
-                        }
+                          message: "Name must be at least 2 characters",
+                        },
                       })}
-                      className={`form-input-modern ${errors.name ? 'error' : ''}`}
+                      className={`form-input-modern ${errors.name ? "error" : ""}`}
                       placeholder="Enter your full name"
                     />
                     {errors.name && (
@@ -147,14 +173,14 @@ const Contact: React.FC = () => {
                     </label>
                     <input
                       type="tel"
-                      {...register('phone', {
-                        required: 'Phone number is required',
+                      {...register("phone", {
+                        required: "Phone number is required",
                         pattern: {
                           value: /^[+]?[\d\s\-()]+$/,
-                          message: 'Please enter a valid phone number'
-                        }
+                          message: "Please enter a valid phone number",
+                        },
                       })}
-                      className={`form-input-modern ${errors.phone ? 'error' : ''}`}
+                      className={`form-input-modern ${errors.phone ? "error" : ""}`}
                       placeholder="Enter your phone number"
                     />
                     {errors.phone && (
@@ -180,14 +206,14 @@ const Contact: React.FC = () => {
                     </label>
                     <input
                       type="email"
-                      {...register('email', {
-                        required: 'Email address is required',
+                      {...register("email", {
+                        required: "Email address is required",
                         pattern: {
                           value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                          message: 'Please enter a valid email address'
-                        }
+                          message: "Please enter a valid email address",
+                        },
                       })}
-                      className={`form-input-modern ${errors.email ? 'error' : ''}`}
+                      className={`form-input-modern ${errors.email ? "error" : ""}`}
                       placeholder="Enter your email address"
                     />
                     {errors.email && (
@@ -207,8 +233,8 @@ const Contact: React.FC = () => {
                       Service Interested In
                     </label>
                     <select
-                      {...register('service')}
-                      className={`form-input-modern ${errors.service ? 'error' : ''}`}
+                      {...register("service")}
+                      className={`form-input-modern ${errors.service ? "error" : ""}`}
                     >
                       <option value="">Select a service</option>
                       {services.map((service) => (
@@ -218,7 +244,9 @@ const Contact: React.FC = () => {
                       ))}
                     </select>
                     {errors.service && (
-                      <span className="form-error">{errors.service.message}</span>
+                      <span className="form-error">
+                        {errors.service.message}
+                      </span>
                     )}
                   </motion.div>
                 </div>
@@ -238,15 +266,15 @@ const Contact: React.FC = () => {
                     Tell us about your project *
                   </label>
                   <textarea
-                    {...register('message', {
-                      required: 'Message is required',
+                    {...register("message", {
+                      required: "Message is required",
                       minLength: {
                         value: 10,
-                        message: 'Message must be at least 10 characters'
-                      }
+                        message: "Message must be at least 10 characters",
+                      },
                     })}
                     rows={5}
-                    className={`form-input-modern textarea ${errors.message ? 'error' : ''}`}
+                    className={`form-input-modern textarea ${errors.message ? "error" : ""}`}
                     placeholder="Describe your solar energy needs, property size, current electricity usage, or any specific requirements..."
                   />
                   {errors.message && (
@@ -258,7 +286,7 @@ const Contact: React.FC = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                className={`form-submit-btn ${isSubmitting ? 'loading' : ''}`}
+                className={`form-submit-btn ${isSubmitting ? "loading" : ""}`}
                 whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                 whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                 initial={{ opacity: 0, y: 20 }}
@@ -267,7 +295,11 @@ const Contact: React.FC = () => {
                 viewport={{ once: true }}
               >
                 <Send size={20} />
-                <span>{isSubmitting ? 'Sending Your Message...' : 'Get Free Solar Quote'}</span>
+                <span>
+                  {isSubmitting
+                    ? "Sending Your Message..."
+                    : "Get Free Solar Quote"}
+                </span>
               </motion.button>
             </form>
           </motion.div>
@@ -280,12 +312,18 @@ const Contact: React.FC = () => {
             className="space-y-8"
           >
             <div>
-              <h3 className="text-2xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+              <h3
+                className="text-2xl font-bold mb-6"
+                style={{ color: "var(--text-primary)" }}
+              >
                 Contact Information
               </h3>
-              <p className="mb-8 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
-                We're here to help you make the switch to clean, renewable energy.
-                Reach out to us through any of the following channels.
+              <p
+                className="mb-8 leading-relaxed"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                We're here to help you make the switch to clean, renewable
+                energy. Reach out to us through any of the following channels.
               </p>
             </div>
 
@@ -299,7 +337,7 @@ const Contact: React.FC = () => {
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.02 }}
                   className="rounded-xl p-6 card-shadow transition-colors duration-300"
-                  style={{ backgroundColor: 'var(--surface-primary)' }}
+                  style={{ backgroundColor: "var(--surface-primary)" }}
                 >
                   <div className="flex items-center space-x-4">
                     <motion.div
@@ -314,14 +352,55 @@ const Contact: React.FC = () => {
                       {info.icon}
                     </motion.div>
                     <div>
-                      <h4 className="text-lg font-semibold mb-2" style={{ color: 'var(--text-primary)' }}>
+                      <h4
+                        className="text-lg font-semibold mb-2"
+                        style={{ color: "var(--text-primary)" }}
+                      >
                         {info.title}
                       </h4>
-                      {info.details.map((detail, detailIndex) => (
-                        <p key={detailIndex} style={{ color: 'var(--text-secondary)' }}>
-                          {detail}
-                        </p>
-                      ))}
+                      {info.details.map((detail, detailIndex) => {
+                        if (!detail) return null;
+                        // Make phone numbers clickable
+                        if (info.title === "Phone Numbers") {
+                          const phoneNumber = detail.trim();
+                          const telLink = phoneNumber.replace(/\s+/g, "");
+                          return (
+                            <a
+                              key={detailIndex}
+                              href={`tel:${telLink}`}
+                              style={{ color: "var(--text-secondary)" }}
+                              className="block hover:text-primary-600 transition-colors duration-300"
+                            >
+                              {detail}
+                            </a>
+                          );
+                        }
+                        // Make email clickable
+                        if (
+                          info.title === "Email Address" &&
+                          detail.includes("@")
+                        ) {
+                          return (
+                            <a
+                              key={detailIndex}
+                              href={`mailto:${detail}`}
+                              style={{ color: "var(--text-secondary)" }}
+                              className="block hover:text-primary-600 transition-colors duration-300"
+                            >
+                              {detail}
+                            </a>
+                          );
+                        }
+                        // Regular text for other details
+                        return (
+                          <p
+                            key={detailIndex}
+                            style={{ color: "var(--text-secondary)" }}
+                          >
+                            {detail}
+                          </p>
+                        );
+                      })}
                     </div>
                   </div>
                 </motion.div>
@@ -334,7 +413,7 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
               className="rounded-xl p-6 text-white text-center"
-              style={{ backgroundColor: 'var(--primary-600)' }}
+              style={{ backgroundColor: "var(--primary-600)" }}
             >
               <h4 className="text-xl font-bold mb-2">
                 Need Immediate Assistance?
@@ -346,16 +425,16 @@ const Contact: React.FC = () => {
                 href="tel:+919428110764"
                 className="inline-flex items-center space-x-2 font-semibold py-3 px-6 rounded-lg transition-colors"
                 style={{
-                  backgroundColor: 'var(--surface-primary)',
-                  color: 'var(--primary-600)'
+                  backgroundColor: "var(--surface-primary)",
+                  color: "var(--primary-600)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+                  e.currentTarget.style.backgroundColor = "var(--bg-secondary)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = 'var(--surface-primary)';
+                  e.currentTarget.style.backgroundColor =
+                    "var(--surface-primary)";
                 }}
-
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

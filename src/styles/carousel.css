@@ -1,0 +1,13 @@
+/* Carousel Text Styles */
+.carousel-text-shadow {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 16px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-text-shadow-lg {
+  text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.9), 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.carousel-overlay {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.3) 100%);
+}
+

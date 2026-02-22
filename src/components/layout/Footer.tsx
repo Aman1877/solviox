@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, ArrowUp } from 'lucide-react';
+import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
 import SolvioxLogo from '../icons/SolvioxLogo';
 
 const Footer: React.FC = () => {
@@ -24,12 +24,6 @@ const Footer: React.FC = () => {
     'Maintenance Services'
   ];
 
-  const socialLinks = [
-    { icon: <Facebook size={20} color="#1877F3" />, href: 'https://facebook.com/', name: 'Facebook' },
-    { icon: <Instagram size={20} color="#E4405F" />, href: 'https://instagram.com/', name: 'Instagram' },
-    { icon: <Linkedin size={20} color="#0A66C2" />, href: 'https://linkedin.com/', name: 'LinkedIn' },
-  ];
-
   return (
     <footer style={{ backgroundColor: 'var(--dark-800)' }} className="text-white">
       {/* Main Footer Content */}
@@ -49,24 +43,6 @@ const Footer: React.FC = () => {
               reduce electricity bills and contribute to a sustainable future with 
               our premium solar installations.
             </p>
-            <div className="flex space-x-4 mt-2">
-              {socialLinks.map((social, index) => (
-                <motion.a
-                  key={social.name}
-                  href={social.href}
-                  className="p-3 rounded-lg transition-colors" style={{backgroundColor: 'transparent'}}
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
           </motion.div>
 
           {/* Quick Links */}
@@ -147,33 +123,45 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold mb-6">Contact Info</h3>
             <div className="space-y-4">
               <motion.div
-                className="flex items-center space-x-3"
+                className="flex items-start space-x-3"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <Phone className="text-primary-400 mt-1 flex-shrink-0" size={18} />
-                <div>
-                  <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>+91 94281 10764</p>
-                  <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>+91 63536 98862</p>
+                <Phone className="text-primary-400 flex-shrink-0 mt-0.5" size={18} />
+                <div className="space-y-1">
+                  <a 
+                    href="tel:+919428110764"
+                    style={{ color: 'rgba(255, 255, 255, 0.8)' }}
+                    className="hover:text-primary-400 transition-colors duration-300 block"
+                  >
+                    +91 94281 10764
+                  </a>
+                  <a 
+                    href="tel:+916353698862"
+                    style={{ color: 'rgba(255, 255, 255, 0.8)' }}
+                    className="hover:text-primary-400 transition-colors duration-300 block"
+                  >
+                    +91 63536 98862
+                  </a>
                 </div>
               </motion.div>
               
               <motion.div
-                className="flex items-center space-x-3"
+                className="flex items-start space-x-3"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <Mail className="text-primary-400 mt-1 flex-shrink-0" size={18} />
+                <Mail className="text-primary-400 flex-shrink-0 mt-0.5" size={18} />
                 <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>solvioxenergy@gmail.com</p>
               </motion.div>
               
               <motion.div
-                className="flex items-center space-x-3"
+                className="flex items-start space-x-3"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <MapPin className="text-primary-400 mt-1 flex-shrink-0" size={18} />
-                <div>
+                <MapPin className="text-primary-400 flex-shrink-0 mt-0.5" size={18} />
+                <div className="space-y-1">
                   <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>Ahmedabad-380001</p>
                   <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>Gujarat, India</p>
                 </div>

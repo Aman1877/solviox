@@ -17,19 +17,24 @@ interface ThemeProviderProps {
 
 // Helper function to get initial theme
 const getInitialTheme = (): Theme => {
-  // Check localStorage first
-  const savedTheme = localStorage.getItem('theme') as Theme;
-  if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-    return savedTheme;
-  }
+  // TEMPORARILY FORCED TO DARK MODE - Theme toggle commented out
+  // Always return dark theme
+  return 'dark';
+  
+  // Original code commented out:
+  // // Check localStorage first
+  // const savedTheme = localStorage.getItem('theme') as Theme;
+  // if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
+  //   return savedTheme;
+  // }
 
-  // Check system preference
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark';
-  }
+  // // Check system preference
+  // if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  //   return 'dark';
+  // }
 
-  // Default to light
-  return 'light';
+  // // Default to light
+  // return 'light';
 };
 
 // Helper function to apply theme to document

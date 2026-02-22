@@ -8,18 +8,24 @@ interface LogoImgProps {
   variant?: 'dark' | 'light';
 }
 
-import darkLogo from '../../assets/solviox-logo-dark.png.svg';
+import solvioxLogo from '../../assets/SOLVIOXNEW.svg';
 
 const LogoImg: React.FC<LogoImgProps> = ({ className = '', style = {}, width = 200, height = 80 }) => {
-  const src = darkLogo;
+  const src = solvioxLogo;
   return (
     <img
       src={src}
       alt="Solviox Energy & Lighting Logo"
       className={className}
-      style={{ width, height, ...style }}
-      width={width}
-      height={height}
+      style={{ 
+        width: typeof width === 'number' ? `${width}px` : width, 
+        height: typeof height === 'number' ? `${height}px` : height, 
+        objectFit: 'contain', 
+        maxWidth: '100%',
+        maxHeight: '100%',
+        display: 'block',
+        ...style 
+      }}
       draggable={false}
     />
   );

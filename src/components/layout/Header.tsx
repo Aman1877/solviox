@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 import SolvioxLogo from "../icons/SolvioxLogo";
-import ThemeToggle from "../ui/ThemeToggle";
 import { navigateTo } from "../Router";
 
 const Header: React.FC = () => {
@@ -77,7 +76,7 @@ const Header: React.FC = () => {
       style={{ backgroundColor: "var(--surface-primary)" }}
     >
       {/* Main Navigation */}
-      <nav className="container-custom px-4 py-1" ref={menuRef}>
+      <nav className="container-custom px-4 py-2" ref={menuRef}>
         <div className="flex justify-between items-center">
           {/* Logo */}
           <motion.a
@@ -89,11 +88,14 @@ const Header: React.FC = () => {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5 }}
-            className="shrink-0"
+            className="shrink-0 flex items-center"
+            style={{ overflow: "visible" }}
           >
             <SolvioxLogo
-              className="h-8 sm:h-10 w-auto hover:scale-105 transition-transform duration-200"
+              className="hover:scale-105 transition-transform duration-200"
               variant="dark"
+              width={180}
+              height={45}
             />
           </motion.a>
 
@@ -116,7 +118,8 @@ const Header: React.FC = () => {
               </motion.a>
             ))}
 
-            <ThemeToggle size="md" variant="button" />
+            {/* ThemeToggle temporarily commented out - forcing dark mode */}
+            {/* <ThemeToggle size="md" variant="button" /> */}
 
             <motion.button
               className="btn btn-primary"
@@ -133,7 +136,8 @@ const Header: React.FC = () => {
 
           {/* Mobile Menu Toggle */}
           <div className="lg:hidden flex items-center space-x-3">
-            <ThemeToggle size="md" variant="button" />
+            {/* ThemeToggle temporarily commented out - forcing dark mode */}
+            {/* <ThemeToggle size="md" variant="button" /> */}
             <motion.button
               onClick={toggleMenu}
               className="p-2 rounded-lg transition-colors"
