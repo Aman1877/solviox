@@ -1,60 +1,38 @@
 import { motion } from "framer-motion";
-import { Building, Home, Lightbulb, Radio } from "lucide-react";
+import { Building, Sun } from "lucide-react";
 import React from "react";
 
 const Services: React.FC = () => {
   const services = [
     {
-      icon: <Home size={40} />,
-      title: "Solar Rooftop",
+      icon: <Sun size={40} />,
+      title: "Solar Solutions",
       description:
-        "Complete residential and commercial rooftop solar solutions with high-efficiency panels and smart inverters.",
+        "Complete solar energy solutions including rooftop systems, street lighting, and high-mast installations for residential, commercial, and industrial applications.",
       features: [
-        "25+ Years Warranty",
+        "Solar Rooftop Installation",
+        "Solar Street Lights",
+        "Solar High Mast Systems",
+        "25+ Years Panel Warranty",
         "Net Metering Support",
-        "Professional Installation",
-        "Maintenance Included",
+        "Maintenance & Support",
       ],
       color: "primary",
-    },
-    {
-      icon: <Lightbulb size={40} />,
-      title: "Solar LED & AC Street Light",
-      description:
-        "Energy-efficient street lighting solutions with automatic controls and long-lasting LED technology.",
-      features: [
-        "Auto On/Off",
-        "Weather Resistant",
-        "Low Maintenance",
-        "Smart Controls",
-      ],
-      color: "secondary",
     },
     {
       icon: <Building size={40} />,
-      title: "Solar & AC EPC Projects",
+      title: "AC Electrical Solutions",
       description:
-        "End-to-end Engineering, Procurement, and Construction services for large-scale solar installations.",
+        "Comprehensive AC electrical infrastructure services including EPC projects, street lighting, and high-mast systems for large-scale developments.",
       features: [
+        "AC EPC Projects",
+        "AC Street Lighting",
+        "AC High Mast Systems",
         "Project Management",
         "Quality Assurance",
-        "Timely Delivery",
         "Post-Installation Support",
       ],
-      color: "accent",
-    },
-    {
-      icon: <Radio size={40} />,
-      title: "Solar & AC High Mast",
-      description:
-        "High-mast lighting solutions for highways, airports, and large commercial areas with solar integration.",
-      features: [
-        "High Luminosity",
-        "Remote Monitoring",
-        "Durable Design",
-        "Energy Efficient",
-      ],
-      color: "primary",
+      color: "secondary",
     },
   ];
 
@@ -77,7 +55,7 @@ const Services: React.FC = () => {
     <section
       id="services"
       className="section-padding transition-colors duration-300"
-      style={{ backgroundColor: "var(--bg-secondary)" }}
+      style={{ backgroundColor: "#f5f5f5" }}
     >
       <div className="container-custom">
         {/* Section Header */}
@@ -90,14 +68,21 @@ const Services: React.FC = () => {
         >
           <h2
             className="text-4xl md:text-5xl font-bold mb-6"
-            style={{ color: "var(--text-primary)" }}
+            style={{ color: "#111827" }}
           >
-            Our <span className="text-primary-600">Services</span>
+            Our{" "}
+            <span
+              style={{
+                background: "linear-gradient(90deg, #0ea5e9, #10b981)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              }}
+            >
+              Services
+            </span>
           </h2>
-          <p
-            className="text-xl max-w-3xl mx-auto"
-            style={{ color: "var(--text-secondary)" }}
-          >
+          <p className="text-xl max-w-3xl mx-auto" style={{ color: "#4b5563" }}>
             Comprehensive solar energy solutions tailored to meet your specific
             needs. From residential rooftops to large-scale commercial projects.
           </p>
@@ -125,7 +110,7 @@ const Services: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true }}
           transition={{ staggerChildren: 0.2 }}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
+          className="grid md:grid-cols-2 gap-6 md:gap-8"
           style={{
             display: "grid",
             gridTemplateRows: "repeat(1, 1fr)",
@@ -141,9 +126,12 @@ const Services: React.FC = () => {
                 y: -10,
                 transition: { duration: 0.3 },
               }}
-              className="rounded-xl p-6 md:p-8 card-shadow group cursor-pointer transition-colors duration-300"
+              className="rounded-xl p-6 md:p-8 group cursor-pointer transition-all duration-300"
               style={{
-                backgroundColor: "var(--surface-primary)",
+                backgroundColor: "#e8eaed",
+                border: "1px solid #d1d5db",
+                borderTop: `4px solid ${index === 0 ? "#10b981" : "#f59e0b"}`,
+                boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
                 display: "flex",
                 flexDirection: "column",
                 height: "100%",
@@ -155,8 +143,11 @@ const Services: React.FC = () => {
                 <motion.div
                   className="inline-flex p-3 md:p-4 rounded-lg mb-4 md:mb-6 transition-colors"
                   style={{
-                    color: `var(--${service.color}-600)`,
-                    backgroundColor: `var(--${service.color}-100)`,
+                    color: index === 0 ? "#34d399" : "#f59e0b",
+                    backgroundColor:
+                      index === 0
+                        ? "rgba(52,211,153,0.15)"
+                        : "rgba(245,158,11,0.15)",
                   }}
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
@@ -166,15 +157,15 @@ const Services: React.FC = () => {
 
                 {/* Content */}
                 <h3
-                  className="text-lg md:text-xl font-bold mb-3 md:mb-4 group-hover:text-primary-600 transition-colors"
-                  style={{ color: "var(--text-primary)" }}
+                  className="text-lg md:text-xl font-bold mb-3 md:mb-4 transition-colors"
+                  style={{ color: "#111827" }}
                 >
                   {service.title}
                 </h3>
 
                 <p
                   className="mb-4 md:mb-6 leading-relaxed text-sm md:text-base"
-                  style={{ color: "var(--text-secondary)" }}
+                  style={{ color: "#374151" }}
                 >
                   {service.description}
                 </p>
@@ -192,12 +183,12 @@ const Services: React.FC = () => {
                       }}
                       viewport={{ once: true }}
                       className="flex items-center text-sm"
-                      style={{ color: "var(--text-secondary)" }}
+                      style={{ color: "#374151" }}
                     >
                       <div
                         className="w-2 h-2 rounded-full mr-3 flex-shrink-0"
                         style={{
-                          backgroundColor: `var(--${service.color}-500)`,
+                          backgroundColor: index === 0 ? "#34d399" : "#f59e0b",
                         }}
                       ></div>
                       {feature}
@@ -265,7 +256,9 @@ const Services: React.FC = () => {
           className="text-center mt-16"
         >
           <div
-            style={{ backgroundColor: "var(--primary-600)" }}
+            style={{
+              background: "linear-gradient(135deg, #374151 0%, #1f2937 100%)",
+            }}
             className="rounded-2xl p-8 md:p-12 text-white"
           >
             <h3 className="text-3xl md:text-4xl font-bold mb-4">

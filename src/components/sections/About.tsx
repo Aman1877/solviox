@@ -34,7 +34,7 @@ const About: React.FC = () => {
   const stats = [
     {
       icon: <Users size={32} />,
-      value: useCounter(500),
+      value: useCounter(2000),
       suffix: "+",
       label: "Happy Customers",
       color: "primary",

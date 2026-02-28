@@ -6,11 +6,11 @@ const Hero: React.FC = () => {
   return (
     <section
       id="home"
-      className="gradient-bg min-h-screen flex items-center section-padding"
+      className="gradient-bg min-h-screen flex items-center section-padding pt-24 md:pt-32"
     >
       <div className="container-custom">
         {/* Content Section */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-6 md:gap-12 items-center">
           {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -23,7 +23,7 @@ const Hero: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-4xl md:text-6xl font-bold leading-tight"
+              className="text-3xl md:text-6xl font-bold leading-tight"
               style={{ color: "var(--text-primary)" }}
             >
               Switch to <span className="text-primary-600">Solar Energy</span>{" "}
@@ -128,7 +128,7 @@ const Hero: React.FC = () => {
               className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200"
             >
               <div className="text-center">
-                <div className="text-3xl font-bold text-primary-600">500+</div>
+                <div className="text-3xl font-bold text-primary-600">2000+</div>
                 <div className="text-sm text-gray-600">Happy Customers</div>
               </div>
               <div className="text-center">

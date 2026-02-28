@@ -744,6 +744,15 @@
   transform: translateY(-1px);
 }
 
+/* Nav link color override for scrolled state */
+header:not(.transparent-header) .nav-link {
+  color: #1a1a1a;
+}
+
+header:not(.transparent-header) .nav-link:hover {
+  color: var(--primary-600);
+}
+
 .nav-link:hover::before {
   width: 80%;
 }
@@ -909,4 +918,90 @@
 
 .opacity-90 {
   opacity: 0.9;
+}
+
+/* Header transparency support */
+body {
+  overflow-x: hidden;
+}
+
+/* Ensure header nav never overflows on narrow screens */
+@media (max-width: 640px) {
+  header nav {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* ── Services Section — Animated Gradient Background ── */
+@keyframes servicesGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  25% {
+    background-position: 100% 50%;
+  }
+
+  50% {
+    background-position: 100% 0%;
+  }
+
+  75% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.services-animated-bg {
+  background: linear-gradient(135deg,
+      #f97316,
+      /* orange */
+      #a855f7,
+      /* purple */
+      #ec4899,
+      /* pink/coral */
+      #f59e0b,
+      /* amber */
+      #10b981,
+      /* emerald */
+      #f97316
+      /* back to orange */
+    );
+  background-size: 400% 400%;
+  animation: servicesGradientShift 8s ease infinite;
+}
+
+/* Video Hero Section Responsive Styles */
+.video-hero-section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.video-hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* Mobile: shorter video hero */
+@media (max-width: 768px) {
+  .video-hero-section {
+    height: 55vh;
+  }
+}
+
+@media (max-width: 480px) {
+  .video-hero-section {
+    height: 50vh;
+  }
 }
