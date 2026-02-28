@@ -62,6 +62,12 @@ const About: React.FC = () => {
     },
   ];
 
+  const colorMap: Record<string, string> = {
+    primary: "#10b981",
+    secondary: "#f59e0b",
+    accent: "#0ea5e9",
+  };
+
   const features = [
     {
       icon: <Clock size={24} />,
@@ -97,7 +103,7 @@ const About: React.FC = () => {
     <section
       id="about"
       className="section-padding transition-colors duration-300"
-      style={{ backgroundColor: "var(--bg-primary)" }}
+      style={{ backgroundColor: "#f5f5f5" }}
     >
       <div className="container-custom">
         {/* Section Header */}
@@ -110,14 +116,11 @@ const About: React.FC = () => {
         >
           <h2
             className="text-4xl md:text-5xl font-bold mb-6"
-            style={{ color: "var(--text-primary)" }}
+            style={{ color: "#111827" }}
           >
             Why Choose <span className="text-primary-600">SOLVIOX</span>?
           </h2>
-          <p
-            className="text-xl max-w-3xl mx-auto"
-            style={{ color: "var(--text-secondary)" }}
-          >
+          <p className="text-xl max-w-3xl mx-auto" style={{ color: "#4b5563" }}>
             With over 5 years of experience in the energy sector, we provide
             reliable, efficient, and cost-effective solar solutions for homes
             and businesses.
@@ -181,13 +184,13 @@ const About: React.FC = () => {
           >
             <h3
               className="text-3xl md:text-4xl font-bold mb-6"
-              style={{ color: "var(--text-primary)" }}
+              style={{ color: "#111827" }}
             >
               Leading Solar Energy Solutions in Gujarat
             </h3>
             <p
               className="text-lg mb-8 leading-relaxed"
-              style={{ color: "var(--text-secondary)" }}
+              style={{ color: "#374151" }}
             >
               SOLVIOX Energy & Lighting has been at the forefront of renewable
               energy solutions, helping thousands of customers reduce their
@@ -206,7 +209,7 @@ const About: React.FC = () => {
                 className="flex items-center space-x-3"
               >
                 <div className="w-3 h-3 rounded-full bg-primary-500"></div>
-                <span style={{ color: "var(--text-secondary)" }}>
+                <span style={{ color: "#374151" }}>
                   Government subsidies and net metering support
                 </span>
               </motion.div>
@@ -218,7 +221,7 @@ const About: React.FC = () => {
                 className="flex items-center space-x-3"
               >
                 <div className="w-3 h-3 rounded-full bg-secondary-500"></div>
-                <span style={{ color: "var(--text-secondary)" }}>
+                <span style={{ color: "#374151" }}>
                   Complete project management from design to installation
                 </span>
               </motion.div>
@@ -230,7 +233,7 @@ const About: React.FC = () => {
                 className="flex items-center space-x-3"
               >
                 <div className="w-3 h-3 rounded-full bg-accent-500"></div>
-                <span style={{ color: "var(--text-secondary)" }}>
+                <span style={{ color: "#374151" }}>
                   24/7 monitoring and maintenance services
                 </span>
               </motion.div>
@@ -254,7 +257,12 @@ const About: React.FC = () => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02 }}
                 className="rounded-xl p-6 hover:shadow-lg transition-all duration-300"
-                style={{ backgroundColor: "var(--bg-secondary)" }}
+                style={{
+                  backgroundColor: "#e8eaed",
+                  border: "1px solid #d1d5db",
+                  borderTop: `4px solid ${colorMap[feature.color] ?? "#10b981"}`,
+                  boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+                }}
               >
                 <div className="flex items-start space-x-4">
                   <motion.div
@@ -274,14 +282,11 @@ const About: React.FC = () => {
                   <div>
                     <h4
                       className="text-xl font-semibold mb-2"
-                      style={{ color: "var(--text-primary)" }}
+                      style={{ color: "#111827" }}
                     >
                       {feature.title}
                     </h4>
-                    <p
-                      className="leading-relaxed"
-                      style={{ color: "var(--text-secondary)" }}
-                    >
+                    <p className="leading-relaxed" style={{ color: "#374151" }}>
                       {feature.description}
                     </p>
                   </div>

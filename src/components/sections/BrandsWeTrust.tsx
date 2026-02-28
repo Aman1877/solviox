@@ -4,46 +4,10 @@ import { motion } from "framer-motion";
 // Brand logos - using actual image URLs from dimansolar.com
 const brands = [
   {
-    id: 1,
-    name: "Luminous",
-    logo: "https://dimansolar.com/public/uploads/associate/associate-33520241209.jpg",
-    description: "Leading power solutions brand",
-  },
-  {
     id: 2,
     name: "Waaree",
     logo: "https://dimansolar.com/public/uploads/associate/associate-52320240821.jpg",
     description: "One with the Sun",
-  },
-  {
-    id: 3,
-    name: "IMA",
-    logo: "https://dimansolar.com/public/uploads/associate/associate-96020220253.jpg",
-    description: "The way to Energy",
-  },
-  {
-    id: 4,
-    name: "RenewSys",
-    logo: "https://dimansolar.com/public/uploads/associate/associate-61620221045.jpg",
-    description: "Let there be light",
-  },
-  {
-    id: 5,
-    name: "SMA",
-    logo: "https://dimansolar.com/public/uploads/associate/associate-17420220254.jpg",
-    description: "Solar Inverter",
-  },
-  {
-    id: 6,
-    name: "LONGi Solar",
-    logo: "https://dimansolar.com/public/uploads/associate/associate-84220221048.jpg",
-    description: "Premium solar panels",
-  },
-  {
-    id: 7,
-    name: "Canadian Solar",
-    logo: "https://dimansolar.com/public/uploads/associate/associate-47420221048.jpg",
-    description: "Global solar solutions",
   },
   {
     id: 8,
@@ -77,7 +41,7 @@ const BrandsWeTrust: React.FC = () => {
         </motion.div>
 
         {/* Brands Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
           {brands.map((brand, index) => (
             <motion.div
               key={brand.id}

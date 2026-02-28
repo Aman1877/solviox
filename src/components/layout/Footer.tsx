@@ -1,31 +1,34 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, ArrowUp } from 'lucide-react';
-import SolvioxLogo from '../icons/SolvioxLogo';
+import React from "react";
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin, ArrowUp } from "lucide-react";
+import SolvioxLogo from "../icons/SolvioxLogo";
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'Services', href: '#services' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "Services", href: "#services" },
+    { name: "About Us", href: "#about" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const services = [
-    'Solar Rooftop Installation',
-    'Solar LED Street Lights',
-    'AC Street Lighting',
-    'EPC Projects',
-    'High Mast Solutions',
-    'Maintenance Services'
+    "Solar Rooftop Installation",
+    "Solar LED Street Lights",
+    "AC Street Lighting",
+    "EPC Projects",
+    "High Mast Solutions",
+    "Maintenance Services",
   ];
 
   return (
-    <footer style={{ backgroundColor: 'var(--dark-800)' }} className="text-white">
+    <footer
+      style={{ backgroundColor: "var(--dark-800)" }}
+      className="text-white"
+    >
       {/* Main Footer Content */}
       <div className="container-custom section-padding">
         <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-8">
@@ -38,10 +41,13 @@ const Footer: React.FC = () => {
             className="space-y-6"
           >
             <SolvioxLogo className="h-16 w-auto" variant="dark" />
-            <p className="leading-relaxed" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-              Leading provider of solar energy solutions in Gujarat. We help you 
-              reduce electricity bills and contribute to a sustainable future with 
-              our premium solar installations.
+            <p
+              className="leading-relaxed"
+              style={{ color: "rgba(255, 255, 255, 0.8)" }}
+            >
+              Leading provider of solar energy solutions in Gujarat. We help you
+              reduce electricity bills and contribute to a sustainable future
+              with our premium solar installations.
             </p>
           </motion.div>
 
@@ -65,17 +71,21 @@ const Footer: React.FC = () => {
                   <a
                     href={link.href}
                     className="hover:text-primary-400 transition-colors duration-300 flex items-center group"
-                    style={{ color: 'rgba(255, 255, 255, 0.8)' }}
-                    onClick={e => {
+                    style={{ color: "rgba(255, 255, 255, 0.8)" }}
+                    onClick={(e) => {
                       e.preventDefault();
-                      const header = document.querySelector('header');
-                      const headerHeight = header ? header.getBoundingClientRect().height : 0;
+                      const header = document.querySelector("header");
+                      const headerHeight = header
+                        ? header.getBoundingClientRect().height
+                        : 0;
                       const target = document.querySelector(link.href);
                       if (target) {
-                        const elementTop = target.getBoundingClientRect().top + window.pageYOffset;
+                        const elementTop =
+                          target.getBoundingClientRect().top +
+                          window.pageYOffset;
                         window.scrollTo({
                           top: elementTop - headerHeight,
-                          behavior: 'smooth'
+                          behavior: "smooth",
                         });
                       }
                     }}
@@ -105,7 +115,7 @@ const Footer: React.FC = () => {
                   transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
                   className="hover:text-primary-400 transition-colors duration-300 cursor-pointer"
-                  style={{ color: 'rgba(255, 255, 255, 0.8)' }}
+                  style={{ color: "rgba(255, 255, 255, 0.8)" }}
                 >
                   {service}
                 </motion.li>
@@ -127,43 +137,58 @@ const Footer: React.FC = () => {
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <Phone className="text-primary-400 flex-shrink-0 mt-0.5" size={18} />
+                <Phone
+                  className="text-primary-400 flex-shrink-0 mt-0.5"
+                  size={18}
+                />
                 <div className="space-y-1">
-                  <a 
+                  <a
                     href="tel:+919428110764"
-                    style={{ color: 'rgba(255, 255, 255, 0.8)' }}
+                    style={{ color: "rgba(255, 255, 255, 0.8)" }}
                     className="hover:text-primary-400 transition-colors duration-300 block"
                   >
                     +91 94281 10764
                   </a>
-                  <a 
+                  <a
                     href="tel:+916353698862"
-                    style={{ color: 'rgba(255, 255, 255, 0.8)' }}
+                    style={{ color: "rgba(255, 255, 255, 0.8)" }}
                     className="hover:text-primary-400 transition-colors duration-300 block"
                   >
                     +91 63536 98862
                   </a>
                 </div>
               </motion.div>
-              
+
               <motion.div
                 className="flex items-start space-x-3"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <Mail className="text-primary-400 flex-shrink-0 mt-0.5" size={18} />
-                <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>solvioxenergy@gmail.com</p>
+                <Mail
+                  className="text-primary-400 flex-shrink-0 mt-0.5"
+                  size={18}
+                />
+                <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
+                  solvioxenergy@gmail.com
+                </p>
               </motion.div>
-              
+
               <motion.div
                 className="flex items-start space-x-3"
                 whileHover={{ x: 5 }}
                 transition={{ duration: 0.3 }}
               >
-                <MapPin className="text-primary-400 flex-shrink-0 mt-0.5" size={18} />
+                <MapPin
+                  className="text-primary-400 flex-shrink-0 mt-0.5"
+                  size={18}
+                />
                 <div className="space-y-1">
-                  <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>Ahmedabad-380001</p>
-                  <p style={{ color: 'rgba(255, 255, 255, 0.8)' }}>Gujarat, India</p>
+                  <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
+                    Ahmedabad-380001
+                  </p>
+                  <p style={{ color: "rgba(255, 255, 255, 0.8)" }}>
+                    Gujarat, India
+                  </p>
                 </div>
               </motion.div>
             </div>
@@ -182,32 +207,39 @@ const Footer: React.FC = () => {
 
               <div className="relative z-10">
                 <p className="text-lg font-bold mb-1">Ready to Go Solar?</p>
-                <p className="text-sm opacity-90 mb-4">Start saving on electricity bills today!</p>
+                <p className="text-sm opacity-90 mb-4">
+                  Start saving on electricity bills today!
+                </p>
                 <motion.a
                   href="#contact"
-                  onClick={e => {
+                  onClick={(e) => {
                     e.preventDefault();
-                    const header = document.querySelector('header');
-                    const headerHeight = header ? header.getBoundingClientRect().height : 0;
-                    const target = document.querySelector('#contact');
+                    const header = document.querySelector("header");
+                    const headerHeight = header
+                      ? header.getBoundingClientRect().height
+                      : 0;
+                    const target = document.querySelector("#contact");
                     if (target) {
-                      const elementTop = target.getBoundingClientRect().top + window.pageYOffset;
+                      const elementTop =
+                        target.getBoundingClientRect().top + window.pageYOffset;
                       window.scrollTo({
                         top: elementTop - headerHeight,
-                        behavior: 'smooth'
+                        behavior: "smooth",
                       });
                     }
                   }}
                   className="font-bold py-3 px-6 rounded-lg text-sm transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 group"
                   style={{
-                    backgroundColor: 'var(--surface-primary)',
-                    color: 'var(--primary-600)'
+                    backgroundColor: "var(--surface-primary)",
+                    color: "var(--primary-600)",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--bg-secondary)';
+                    e.currentTarget.style.backgroundColor =
+                      "var(--bg-secondary)";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.backgroundColor = 'var(--surface-primary)';
+                    e.currentTarget.style.backgroundColor =
+                      "var(--surface-primary)";
                   }}
                   whileHover={{ scale: 1.05, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -218,7 +250,10 @@ const Footer: React.FC = () => {
                     whileHover={{ rotate: 90 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="w-2 h-2 rounded-full transform group-hover:scale-110 transition-transform" style={{ backgroundColor: 'var(--surface-primary)' }}></div>
+                    <div
+                      className="w-2 h-2 rounded-full transform group-hover:scale-110 transition-transform"
+                      style={{ backgroundColor: "var(--surface-primary)" }}
+                    ></div>
                   </motion.div>
                 </motion.a>
               </div>
@@ -237,16 +272,17 @@ const Footer: React.FC = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
               className="text-sm"
-              style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+              style={{ color: "rgba(255, 255, 255, 0.6)" }}
             >
-              © 2024 SOLVIOX Energy & Lighting. All rights reserved.
+              © {new Date().getFullYear()} SOLVIOX Energy & Lighting. All rights
+              reserved.
             </motion.p>
-            
+
             <div className="flex items-center space-x-6">
               <motion.a
                 href="#"
                 className="hover:text-primary-400 text-sm transition-colors duration-300"
-                style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                style={{ color: "rgba(255, 255, 255, 0.6)" }}
                 whileHover={{ y: -2 }}
               >
                 Privacy Policy
@@ -254,7 +290,7 @@ const Footer: React.FC = () => {
               <motion.a
                 href="#"
                 className="hover:text-primary-400 text-sm transition-colors duration-300"
-                style={{ color: 'rgba(255, 255, 255, 0.6)' }}
+                style={{ color: "rgba(255, 255, 255, 0.6)" }}
                 whileHover={{ y: -2 }}
               >
                 Terms of Service
@@ -274,7 +310,7 @@ const Footer: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 1 }}
         aria-label="Scroll to top"
-        style={{boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.18)'}}
+        style={{ boxShadow: "0 8px 32px 0 rgba(31, 38, 135, 0.18)" }}
       >
         <ArrowUp size={28} strokeWidth={2.5} color="#1e293b" />
       </motion.button>
