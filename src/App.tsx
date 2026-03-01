@@ -11,7 +11,7 @@ function App() {
   return (
     <div
       className="min-h-screen transition-colors duration-300"
-      style={{ backgroundColor: "var(--bg-primary)" }}
+      style={{ backgroundColor: "var(--bg-primary)", overflowX: "hidden" }}
     >
       <main>
         <Header />
