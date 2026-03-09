@@ -184,6 +184,29 @@ const VideoHeroSection: React.FC<VideoHeroSectionProps> = ({
           </span>
         </motion.h1>
 
+        {/* Primary brand tagline (always visible) */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.5 }}
+          style={{
+            color: "#ffffff",
+            fontSize: "clamp(1rem, 2.5vw, 1.35rem)",
+            fontWeight: 800,
+            letterSpacing: "0.02em",
+            marginBottom: "0.95rem",
+            textShadow: "0 2px 18px rgba(2, 6, 23, 0.6)",
+            background:
+              "linear-gradient(90deg, rgba(14,165,233,0.28), rgba(37,99,235,0.33))",
+            border: "1px solid rgba(147,197,253,0.75)",
+            borderRadius: "999px",
+            padding: "0.42rem 1.15rem",
+            backdropFilter: "blur(4px)",
+          }}
+        >
+          Your roof, Your Electricity
+        </motion.p>
+
         {/* Animated rotating tagline */}
         <div
           style={{

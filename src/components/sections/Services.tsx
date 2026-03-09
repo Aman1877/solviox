@@ -128,10 +128,11 @@ const Services: React.FC = () => {
               }}
               className="rounded-xl p-6 md:p-8 group cursor-pointer transition-all duration-300"
               style={{
-                backgroundColor: "#e8eaed",
-                border: "1px solid #d1d5db",
+                background:
+                  "linear-gradient(145deg, #dbeafe 0%, #93c5fd 52%, #60a5fa 100%)",
+                border: "1px solid #60a5fa",
                 borderTop: `4px solid ${index === 0 ? "#10b981" : "#f59e0b"}`,
-                boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
+                boxShadow: "0 12px 28px rgba(30, 64, 175, 0.2)",
                 display: "flex",
                 flexDirection: "column",
                 height: "100%",
