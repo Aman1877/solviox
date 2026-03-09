@@ -204,7 +204,7 @@ const VideoHeroSection: React.FC<VideoHeroSectionProps> = ({
             backdropFilter: "blur(4px)",
           }}
         >
-          Your roof, Your Electricity
+          ☀️ Save with Solar. Shine with Solviox
         </motion.p>
 
         {/* Animated rotating tagline */}

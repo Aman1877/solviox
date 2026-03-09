@@ -15,6 +15,12 @@ const brands = [
     logo: "https://dimansolar.com/public/uploads/associate/associate-58320220252.jpg",
     description: "Trusted solar technology",
   },
+  {
+    id: 9,
+    name: "Tata Power Solar",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/f/f5/Tata_Power_logo.svg",
+    description: "India's leading solar brand",
+  },
 ];
 const BrandsWeTrust: React.FC = () => {
   return (
@@ -41,7 +47,7 @@ const BrandsWeTrust: React.FC = () => {
         </motion.div>
 
         {/* Brands Grid */}
-        <div className="grid grid-cols-2 gap-6 md:gap-8 max-w-2xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 max-w-4xl mx-auto">
           {brands.map((brand, index) => (
             <motion.div
               key={brand.id}
@@ -68,7 +74,28 @@ const BrandsWeTrust: React.FC = () => {
                     objectFit: "contain",
                   }}
                   loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = "none";
+                    const fallback = target.nextElementSibling as HTMLElement;
+                    if (fallback) fallback.style.display = "flex";
+                  }}
                 />
+                <span
+                  style={{
+                    display: "none",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    width: "100%",
+                    height: "100%",
+                    fontWeight: 700,
+                    fontSize: "0.85rem",
+                    color: "#0ea5e9",
+                    textAlign: "center",
+                  }}
+                >
+                  {brand.name}
+                </span>
               </div>
               <h3 className="text-sm md:text-base font-bold text-center text-white mb-1">
                 {brand.name}

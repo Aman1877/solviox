@@ -273,6 +273,20 @@ const Services: React.FC = () => {
               className="btn btn-secondary"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => {
+                const header = document.querySelector("header");
+                const headerHeight = header
+                  ? header.getBoundingClientRect().height
+                  : 65;
+                const el = document.getElementById("contact");
+                if (el) {
+                  const top =
+                    el.getBoundingClientRect().top +
+                    window.pageYOffset -
+                    headerHeight;
+                  window.scrollTo({ top, behavior: "smooth" });
+                }
+              }}
             >
               Schedule Free Consultation
             </motion.button>

@@ -69,6 +69,34 @@ const Hero: React.FC = () => {
               Today
             </motion.h2>
 
+            {/* Tagline */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.35 }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                alignSelf: "flex-start",
+              }}
+            >
+              <span
+                style={{
+                  background: "linear-gradient(90deg, #0ea5e9, #0369a1)",
+                  color: "#ffffff",
+                  padding: isMobile ? "0.3rem 0.9rem" : "0.4rem 1.1rem",
+                  borderRadius: "9999px",
+                  fontSize: isMobile ? "0.8rem" : "0.9rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.03em",
+                  boxShadow: "0 2px 10px rgba(14,165,233,0.35)",
+                }}
+              >
+                ☀️ Save with Solar. Shine with Solviox
+              </span>
+            </motion.div>
+
             {/* Description */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
