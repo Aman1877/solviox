@@ -2,18 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/svg+xml" href="/solviox-favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SOLVIOX - Solar Energy & Lighting Solutions</title>
 
     <!-- Theme initialization script to prevent FOUC -->
     <script>
-      (function() {
+      (function () {
         // TEMPORARILY FORCED TO DARK MODE - Theme toggle commented out
         function getInitialTheme() {
           // Always return dark theme
-          return 'dark';
-          
+          return "dark";
+
           // Original code commented out:
           // const savedTheme = localStorage.getItem('theme');
           // if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
@@ -30,8 +30,8 @@
         function applyTheme() {
           const theme = getInitialTheme();
           // Always apply dark theme
-          document.documentElement.classList.add('dark');
-          
+          document.documentElement.classList.add("dark");
+
           // Original code commented out:
           // if (theme === 'dark') {
           //   document.documentElement.classList.add('dark');
@@ -44,18 +44,18 @@
         applyTheme();
 
         // Re-apply theme on page visibility change (for navigation)
-        document.addEventListener('visibilitychange', function() {
+        document.addEventListener("visibilitychange", function () {
           if (!document.hidden) {
             applyTheme();
           }
         });
 
         // Re-apply theme on focus (for navigation)
-        window.addEventListener('focus', applyTheme);
+        window.addEventListener("focus", applyTheme);
 
         // Re-apply theme on storage change (for cross-tab sync)
-        window.addEventListener('storage', function(e) {
-          if (e.key === 'theme') {
+        window.addEventListener("storage", function (e) {
+          if (e.key === "theme") {
             applyTheme();
           }
         });
