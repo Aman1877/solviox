@@ -1,6 +1,16 @@
-import emailjs from '@emailjs/browser';
+import emailjs from "@emailjs/browser";
 
-// Form submission utility using EmailJS
+// ─── EmailJS credentials from environment variables ───────────────────────────
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID as string;
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string;
+// Owner-notification template (sent to solvioxenergy@gmail.com)
+const OWNER_TEMPLATE_ID = import.meta.env
+  .VITE_EMAILJS_OWNER_TEMPLATE_ID as string;
+// Thank-you template (sent back to the customer)
+const THANKYOU_TEMPLATE_ID = import.meta.env
+  .VITE_EMAILJS_THANKYOU_TEMPLATE_ID as string;
+
+// ─── Types ────────────────────────────────────────────────────────────────────
 export interface ContactFormData {
   name: string;
   email: string;
@@ -9,84 +19,90 @@ export interface ContactFormData {
   service: string;
 }
 
-// TODO: EmailJS Setup Required
-// 1. Create an account at https://www.emailjs.com/
-// 2. Create an email service (Gmail, Outlook, etc.)
-// 3. Create an email template with the following variables:
-//    - {{from_name}} - sender's name
-//    - {{from_email}} - sender's email
-//    - {{phone}} - sender's phone
-//    - {{service}} - selected service
-//    - {{message}} - message content
-// 4. Get your Service ID, Template ID, and Public Key
-// 5. Update the constants below with your actual values
-
-// TODO: Replace these with your actual EmailJS credentials
-const EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID'; // e.g., 'service_abc123'
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // e.g., 'template_xyz789'
-const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // e.g., 'user_def456'
-
-// Submit contact form using EmailJS
-export const submitContactForm = async (data: ContactFormData): Promise<void> => {
-  try {
-    // TODO: Remove this check once EmailJS is properly configured
-    if (EMAILJS_SERVICE_ID === 'YOUR_SERVICE_ID') {
-      console.log('EmailJS not configured yet. Form data:', data);
-      alert('EmailJS is not configured yet. Please check the console for form data.');
-      return;
-    }
-
-    // Prepare template parameters for EmailJS
-    const templateParams = {
-      from_name: data.name,
-      from_email: data.email,
-      phone: data.phone,
-      service: data.service || 'Not specified',
-      message: data.message,
-      to_email: 'solvioxenergy@gmail.com', // SOLVIOX email
-    };
-
-    // Send email using EmailJS
-    const response = await emailjs.send(
-      EMAILJS_SERVICE_ID,
-      EMAILJS_TEMPLATE_ID,
-      templateParams,
-      EMAILJS_PUBLIC_KEY
+// ─── Main submit function ─────────────────────────────────────────────────────
+/**
+ * Sends TWO emails on contact form submission:
+ *  1. Owner notification  → solvioxenergy@gmail.com  (OWNER_TEMPLATE_ID)
+ *  2. Customer thank-you  → user's email              (THANKYOU_TEMPLATE_ID)
+ */
+export const submitContactForm = async (
+  data: ContactFormData,
+): Promise<void> => {
+  // Guard: ensure credentials are configured
+  if (
+    !SERVICE_ID ||
+    SERVICE_ID === "YOUR_SERVICE_ID" ||
+    !PUBLIC_KEY ||
+    PUBLIC_KEY === "YOUR_PUBLIC_KEY" ||
+    !OWNER_TEMPLATE_ID ||
+    OWNER_TEMPLATE_ID === "YOUR_OWNER_TEMPLATE_ID" ||
+    !THANKYOU_TEMPLATE_ID ||
+    THANKYOU_TEMPLATE_ID === "YOUR_THANKYOU_TEMPLATE_ID"
+  ) {
+    console.warn("[EmailJS] Credentials not configured. Form data:", data);
+    throw new Error(
+      "EmailJS is not configured yet. Please add your credentials to the .env file.",
     );
-
-    if (response.status === 200) {
-      console.log('Email sent successfully:', response);
-    } else {
-      throw new Error('Failed to send email');
-    }
-  } catch (error) {
-    console.error('Error sending email:', error);
-    throw new Error('Failed to send message. Please try again.');
   }
+
+  // Template variables — names must match exactly what's in your EmailJS templates
+  const templateParams = {
+    full_name: data.name,
+    email: data.email,
+    phone_number: data.phone,
+    service: data.service || "Not specified",
+    project_details: data.message,
+    to_email: "solvioxenergy@gmail.com",
+    reply_to: data.email,
+  };
+
+  // 1️⃣  Send owner-notification email
+  const ownerResponse = await emailjs.send(
+    SERVICE_ID,
+    OWNER_TEMPLATE_ID,
+    templateParams,
+    PUBLIC_KEY,
+  );
+
+  if (ownerResponse.status !== 200) {
+    throw new Error("Failed to send owner notification email.");
+  }
+
+  // 2️⃣  Send customer thank-you email
+  const thankYouResponse = await emailjs.send(
+    SERVICE_ID,
+    THANKYOU_TEMPLATE_ID,
+    templateParams,
+    PUBLIC_KEY,
+  );
+
+  if (thankYouResponse.status !== 200) {
+    throw new Error("Failed to send thank-you email to customer.");
+  }
+
+  console.log("[EmailJS] Both emails sent successfully.");
 };
 
-// Email validation helper
+// ─── Helpers ──────────────────────────────────────────────────────────────────
 export const validateEmail = (email: string): boolean => {
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
   return emailRegex.test(email);
 };
 
-// Phone validation helper
 export const validatePhone = (phone: string): boolean => {
   const phoneRegex = /^[+]?[\d\s\-()]+$/;
-  return phoneRegex.test(phone) && phone.replace(/\D/g, '').length >= 10;
+  return phoneRegex.test(phone) && phone.replace(/\D/g, "").length >= 10;
 };
 
-// Format form data for display or submission
 export const formatFormData = (data: ContactFormData): string => {
   return `
 Contact Form Submission:
 ------------------------
-Name: ${data.name}
-Email: ${data.email}
-Phone: ${data.phone}
-Service: ${data.service || 'Not specified'}
-Message: ${data.message}
+Name:     ${data.name}
+Email:    ${data.email}
+Phone:    ${data.phone}
+Service:  ${data.service || "Not specified"}
+Message:  ${data.message}
 Submitted: ${new Date().toLocaleString()}
   `.trim();
 };
