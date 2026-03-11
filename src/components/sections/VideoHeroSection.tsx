@@ -82,6 +82,9 @@ const VideoHeroSection: React.FC<VideoHeroSectionProps> = ({
           loop
           muted
           playsInline
+          preload="auto"
+          // @ts-ignore — fetchPriority is valid on video elements, TS types lag behind
+          fetchPriority="high"
           poster={videoPoster}
         >
           <source src={videoSrc} type="video/mp4" />
@@ -103,6 +106,7 @@ const VideoHeroSection: React.FC<VideoHeroSectionProps> = ({
 
       {/* ── Hero content ── */}
       <div
+        className="video-hero-content"
         style={{
           position: "relative",
           zIndex: 10,
