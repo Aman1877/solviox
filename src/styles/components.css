@@ -760,12 +760,20 @@
   transform: translateY(-1px);
 }
 
-/* Nav link color override for scrolled state */
-header:not(.transparent-header) .nav-link {
+/* Nav link color overrides for header states */
+header.header-transparent .nav-link {
+  color: #ffffff;
+}
+
+header.header-transparent .nav-link:hover {
+  color: var(--gray-900);
+}
+
+header.header-scrolled .nav-link {
   color: #1a1a1a;
 }
 
-header:not(.transparent-header) .nav-link:hover {
+header.header-scrolled .nav-link:hover {
   color: var(--primary-600);
 }
 

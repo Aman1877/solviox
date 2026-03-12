@@ -82,8 +82,24 @@ const Header: React.FC = () => {
       window.scrollTo({ top, behavior: "smooth" });
     };
 
+    const tryScrollWithRetry = (attempt = 0) => {
+      const element = document.querySelector(href);
+      if (element) {
+        doScroll();
+        return;
+      }
+      if (attempt < 20) {
+        requestAnimationFrame(() => tryScrollWithRetry(attempt + 1));
+      }
+    };
+
     // rAF ensures the DOM layout is settled before measuring
-    requestAnimationFrame(doScroll);
+    if (window.location.pathname === "/") {
+      requestAnimationFrame(doScroll);
+    } else {
+      navigateTo("/");
+      requestAnimationFrame(() => tryScrollWithRetry(0));
+    }
   };
 
   // Use the same header design for all pages
@@ -161,9 +177,6 @@ const Header: React.FC = () => {
                 key={item.name}
                 href={item.href}
                 className="nav-link"
-                style={{
-                  color: isScrolled ? "#1a1a1a" : "#ffffff",
-                }}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
