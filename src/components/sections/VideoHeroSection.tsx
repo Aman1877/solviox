@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import HeroVideo from "../HeroVideo";
 
 interface VideoHeroSectionProps {
   videoSrc?: string;
@@ -17,21 +18,11 @@ const TAGLINES = [
 
 const VideoHeroSection: React.FC<VideoHeroSectionProps> = ({
   videoSrc = "/videos/hero-video.mp4",
-  videoPoster,
+  videoPoster = "/images/hero-image.png",
   overlay = true,
   onGetQuote,
 }) => {
-  const videoRef = useRef<HTMLVideoElement>(null);
   const [taglineIndex, setTaglineIndex] = useState(0);
-
-  useEffect(() => {
-    const video = videoRef.current;
-    if (video) {
-      video.play().catch((error) => {
-        console.log("Video autoplay prevented:", error);
-      });
-    }
-  }, []);
 
   // Cycle taglines every 3.5s
   useEffect(() => {
@@ -75,21 +66,7 @@ const VideoHeroSection: React.FC<VideoHeroSectionProps> = ({
           overflow: "hidden",
         }}
       >
-        <video
-          ref={videoRef}
-          className="video-hero-video"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          // @ts-ignore — fetchPriority is valid on video elements, TS types lag behind
-          fetchPriority="high"
-          poster={videoPoster}
-        >
-          <source src={videoSrc} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <HeroVideo src={videoSrc} poster={videoPoster} />
       </div>
 
       {/* ── Dark gradient overlay ── */}
