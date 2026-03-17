@@ -44,7 +44,7 @@ const HeroVideo: React.FC<HeroVideoProps> = ({
       <img
         className="video-hero-video"
         src={poster}
-        alt=""
+        alt="Solviox Energy solar installation and renewable energy solutions"
         aria-hidden="true"
         loading="eager"
         decoding="async"

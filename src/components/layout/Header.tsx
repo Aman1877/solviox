@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
 import SolvioxLogo from "../icons/SolvioxLogo";
-import { navigateTo } from "../Router";
+import { navigateTo } from "../../utils/navigation";
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
