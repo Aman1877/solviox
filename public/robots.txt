@@ -1,4 +1,4 @@
-# Vezaro Exports - robots.txt
+# Solviox Energy - robots.txt
 User-agent: *
 Allow: /
 
