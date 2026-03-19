@@ -1,0 +1,16 @@
+{
+  "name": "Solviox Energy - Solar Energy & Lighting Solutions India",
+  "short_name": "Solviox Energy",
+  "description": "Solviox Energy provides advanced solar energy and lighting solutions for homes and businesses across India. Sustainable, efficient and reliable solar power systems with 25+ years warranty.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A1628",
+  "theme_color": "#0A1628",
+  "icons": [
+    {
+      "src": "/solviox-favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
